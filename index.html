@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boucherie Olympe</title>
+<meta name="description" content="Boucherie Olympe : viandes de qualité, conseils et commandes pour les fêtes. [VILLE]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux:#7a1f2b; --bordeaux-dark:#5a1520; --cream:#faf6ef; --ink:#2a2523;
+    --muted:#6d6460; --gold:#c9a24a; --sapin:#1f4d3a; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.2;margin:0 0 .5em}
+  a{color:var(--bordeaux)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  nav{position:sticky;top:0;z-index:10;background:rgba(250,246,239,.95);backdrop-filter:blur(6px);border-bottom:1px solid #e8dfd2}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{font-family:"Playfair Display",serif;font-weight:700;font-size:1.25rem;color:var(--bordeaux);text-decoration:none}
+  nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+  nav ul a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
+  nav ul a.nav-noel{color:var(--sapin)}
+  @media(max-width:600px){nav ul li:not(.keep){display:none} nav ul{gap:12px} nav .brand{font-size:1.05rem}} nav .brand,nav ul a{white-space:nowrap}
+
+  .hero{position:relative;min-height:70vh;display:flex;align-items:flex-end;color:#fff;
+    background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.65)),var(--hero) center/cover no-repeat,var(--bordeaux-dark)}
+  .hero .wrap{padding-bottom:56px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem)}
+  .hero p{font-size:1.2rem;max-width:560px;margin:0 0 24px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;margin:0 8px 8px 0}
+  .btn-light{background:#fff;color:var(--bordeaux)}
+  .btn-sapin{background:var(--sapin);color:#fff}
+
+  section{padding:72px 0}
+  .lead{color:var(--muted);max-width:640px;margin-top:-4px}
+
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:28px}
+  .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(60,30,20,.07)}
+  .card .body{padding:18px 20px}
+  .card h3{font-size:1.2rem;margin-bottom:.3em}
+  .card p{margin:0;color:var(--muted)}
+
+  /* photo with automatic placeholder if the file is missing */
+  .ph{aspect-ratio:4/3;width:100%;display:block;object-fit:cover;background:#e9dfd1}
+  .ph-missing{display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;width:100%;
+    background:repeating-linear-gradient(45deg,#efe6d8,#efe6d8 12px,#e7dccb 12px,#e7dccb 24px);color:#8b7d6b;font-size:.9rem;text-align:center;padding:10px}
+
+  .noel{background:var(--sapin);color:#f4efe4}
+  .noel h2{color:#fff}
+  .noel .lead{color:#d6e3d9}
+  .noel .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:28px}
+  .noel .gallery img,.noel .gallery .ph-missing{border-radius:10px}
+  .noel .order{margin-top:36px;background:rgba(255,255,255,.08);border:1px solid rgba(201,162,74,.5);border-radius:14px;padding:24px}
+  .noel .order h3{color:var(--gold)}
+  .noel ul{padding-left:20px;margin:.5em 0}
+
+  .infos{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px}
+  @media(max-width:760px){.infos{grid-template-columns:1fr}}
+  table.hours{border-collapse:collapse;width:100%}
+  table.hours td{padding:7px 0;border-bottom:1px solid #e8dfd2}
+  table.hours td:last-child{text-align:right;font-weight:600}
+  .map{width:100%;aspect-ratio:4/3;border:0;border-radius:14px;background:#e9dfd1}
+  .contact-line{font-size:1.15rem;margin:.3em 0}
+
+  footer{background:var(--ink);color:#cfc6bd;padding:28px 0;font-size:.9rem}
+  footer a{color:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">Boucherie Olympe</a>
+    <ul>
+      <li><a href="#produits">Nos produits</a></li>
+      <li class="keep"><a class="nav-noel" href="#noel">Noël ✨</a></li>
+      <li class="keep"><a href="#infos">Horaires &amp; accès</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header photo: put it at photos/devanture.jpg -->
+<header class="hero" style="--hero:url('photos/devanture.jpg')">
+  <div class="wrap">
+    <h1>Boucherie Olympe</h1>
+    <p>Votre boucherie de quartier à [VILLE] : viandes sélectionnées, préparations maison et conseils de vos bouchers.</p>
+    <a class="btn btn-light" href="tel:[TELEPHONE]">Appeler la boutique</a>
+    <a class="btn btn-sapin" href="#noel">Commandes de Noël</a>
+  </div>
+</header>
+
+<section id="produits">
+  <div class="wrap">
+    <h2>Nos produits</h2>
+    <p class="lead">[À confirmer avec la boucherie : origines, labels, spécialités maison.]</p>
+    <div class="grid3">
+      <div class="card">
+        <img class="ph" src="photos/boeuf.jpg" alt="Viandes de bœuf" data-label="Photo : bœuf">
+        <div class="body"><h3>Bœuf &amp; veau</h3><p>[Races, origine, maturation…]</p></div>
+      </div>
+      <div class="card">
+        <img class="ph" src="photos/volaille.jpg" alt="Volailles" data-label="Photo : volailles">
+        <div class="body"><h3>Volailles &amp; agneau</h3><p>[Fermiers, Label Rouge…]</p></div>
+      </div>
+      <div class="card">
+        <img class="ph" src="photos/maison.jpg" alt="Préparations maison" data-label="Photo : préparations maison">
+        <div class="body"><h3>Préparations maison</h3><p>[Saucisses, farcis, plats cuisinés…]</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="noel" class="noel">
+  <div class="wrap">
+    <h2>Noël à la boucherie</h2>
+    <p class="lead">La boutique s'est habillée pour les fêtes. Passez nous voir, et pensez à réserver vos viandes de réveillon.</p>
+
+    <!-- Christmas photos: photos/noel-1.jpg … noel-6.jpg (add or remove lines as needed) -->
+    <div class="gallery">
+      <img class="ph" src="photos/noel-1.jpg" alt="Décorations de Noël de la boucherie" data-label="Photo Noël 1">
+      <img class="ph" src="photos/noel-2.jpg" alt="Décorations de Noël de la boucherie" data-label="Photo Noël 2">
+      <img class="ph" src="photos/noel-3.jpg" alt="Décorations de Noël de la boucherie" data-label="Photo Noël 3">
+      <img class="ph" src="photos/noel-4.jpg" alt="Décorations de Noël de la boucherie" data-label="Photo Noël 4">
+      <img class="ph" src="photos/noel-5.jpg" alt="Décorations de Noël de la boucherie" data-label="Photo Noël 5">
+      <img class="ph" src="photos/noel-6.jpg" alt="Décorations de Noël de la boucherie" data-label="Photo Noël 6">
+    </div>
+
+    <div class="order">
+      <h3>Commandes pour les fêtes</h3>
+      <p>[À confirmer : produits proposés, date limite de commande, retrait.]</p>
+      <ul>
+        <li>[Chapons, dindes, volailles festives]</li>
+        <li>[Rôtis, filets, plats préparés]</li>
+        <li>[Foie gras, terrines…]</li>
+      </ul>
+      <p><strong>Pour commander :</strong> en boutique ou par téléphone au <a href="tel:[TELEPHONE]" style="color:#fff">[TÉLÉPHONE]</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="infos">
+  <div class="wrap">
+    <h2>Horaires &amp; accès</h2>
+    <div class="infos">
+      <div>
+        <table class="hours">
+          <tr><td>Lundi</td><td>[Fermé]</td></tr>
+          <tr><td>Mardi – Vendredi</td><td>[8h30 – 13h · 15h30 – 19h30]</td></tr>
+          <tr><td>Samedi</td><td>[8h – 19h30]</td></tr>
+          <tr><td>Dimanche</td><td>[8h30 – 13h]</td></tr>
+        </table>
+        <p class="contact-line" style="margin-top:20px">📍 [ADRESSE, CODE POSTAL VILLE]</p>
+        <p class="contact-line">📞 <a href="tel:[TELEPHONE]">[TÉLÉPHONE]</a></p>
+        <p class="contact-line">📷 <a href="#">[Instagram / Facebook si existant]</a></p>
+      </div>
+      <!-- Map: replace the q= with the shop's address -->
+      <iframe class="map" loading="lazy" title="Plan d'accès"
+        src="https://www.google.com/maps?q=Boucherie+Olympe&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="y"></span> Boucherie Olympe · [ADRESSE] · Site réalisé par <a href="https://blackstrype.com">Blackstrype Compass Consulting</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // Show a labelled placeholder when a photo file is not there yet
+  document.querySelectorAll('img.ph').forEach(function(img){
+    function swap(){
+      var d=document.createElement('div');
+      d.className='ph-missing'+(img.parentElement.classList.contains('gallery')?'':'');
+      d.textContent=img.dataset.label||'Photo à venir';
+      img.replaceWith(d);
+    }
+    if(img.complete && img.naturalWidth===0) swap(); else img.addEventListener('error',swap);
+  });
+</script>
+</body>
+</html>
